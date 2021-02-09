@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "../../App.css";
 import Header from "../Header/Header";
+import Cookies from "js-cookie";
 class profileDEtails extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,14 @@ class profileDEtails extends React.Component {
   }
 
   componentDidMount() {
-    this.getExperienceData();
+    let cookie = Cookies.get("email");
+    let token = Cookies.get("token");
+
+    if (cookie === undefined || token === undefined) {
+      window.open("/", "_self");
+    } else {
+      this.getExperienceData();
+    }
   }
 
   getExperienceData = () => {
@@ -30,7 +38,7 @@ class profileDEtails extends React.Component {
         <div className="main">
           <h5>About:</h5>
           {this.state.data.map((val, k) =>
-            val["unique_id"] === this.props.match.params.id ? (
+            val["email"] === this.props.match.params.id ? (
               <ul>
                 <li>
                   <strong>Experience: </strong>

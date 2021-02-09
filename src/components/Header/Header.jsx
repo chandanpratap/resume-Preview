@@ -1,6 +1,13 @@
+import Cookies from "js-cookie";
 const Header1 = () => {
   const redirectScreen = (url) => {
     window.open(url, "_self");
+  };
+
+  const logout = () => {
+    Cookies.remove("email");
+    Cookies.remove("token");
+    window.open("/");
   };
 
   return (
@@ -28,7 +35,7 @@ const Header1 = () => {
                 <a
                   class="nav-link"
                   aria-current="page"
-                  onClick={() => redirectScreen("/")}
+                  onClick={() => redirectScreen("/resume-builder")}
                 >
                   Resume Builder
                 </a>
@@ -39,6 +46,11 @@ const Header1 = () => {
                   onClick={() => redirectScreen("/profile-page")}
                 >
                   Public Profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onClick={logout}>
+                  Logout
                 </a>
               </li>
             </ul>

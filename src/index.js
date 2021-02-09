@@ -7,13 +7,15 @@ import { Router, Switch, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import ProfileList from "./components/PublicProfile/ProfileLists";
 import ProfileDetails from "./components/PublicProfile/ProfileDetails";
+import Login from "./components/Auth/Login";
 export const hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route exact path={"/"} component={App} />
-      <Route exact path={"/profile-page"} component={ProfileList} />
+      <Route path={"/"} exact component={Login} />
+      <Route path={"/resume-builder"} exact component={App} />
+      <Route exact path={"/profile-page"} exact component={ProfileList} />
       <Route path={"/doctor-details/:id"} exact component={ProfileDetails} />
     </Switch>
   </Router>,

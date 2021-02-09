@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import "../../App.css";
 import Header from "../Header/Header";
+import Cookies from "js-cookie";
+
 class ProfileList extends React.Component {
   constructor(props) {
     super(props);
@@ -11,12 +13,19 @@ class ProfileList extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get("http://localhost:3000/posts")
-      .then((response) => {
-        this.setState({ data: response.data });
-      })
-      .catch((error) => {});
+    let cookie = Cookies.get("email");
+    let token = Cookies.get("token");
+
+    if (cookie === undefined || token === undefined) {
+      window.open("/", "_self");
+    } else {
+      axios
+        .get("http://localhost:3000/posts")
+        .then((response) => {
+          this.setState({ data: response.data });
+        })
+        .catch((error) => {});
+    }
   }
 
   redirectDoctorsDetails = (id) => {
@@ -35,7 +44,7 @@ class ProfileList extends React.Component {
                 <li
                   class="list-group-item doctor-lists "
                   aria-current="true"
-                  onClick={() => this.redirectDoctorsDetails(val["first_name"])}
+                  onClick={() => this.redirectDoctorsDetails(val["email"])}
                 >
                   {val["first_name"] +
                     " " +

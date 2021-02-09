@@ -18,6 +18,26 @@ class ResumeDetails extends Component {
     this.props.getExperienceData(data);
   };
 
+  getFirstName = (data) => {
+    this.props.getFirstName(data);
+  };
+
+  getMiddleName = (data) => {
+    this.props.getMiddleName(data);
+  };
+
+  getLastName = (data) => {
+    this.props.getLastName(data);
+  };
+
+  getGender = (data) => {
+    this.props.getGender(data);
+  };
+
+  getDate = (data) => {
+    this.props.getDate(data);
+  };
+
   render() {
     return (
       <div>
@@ -43,7 +63,14 @@ class ResumeDetails extends Component {
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <Form getInformation={this.getUserInformation} />
+                <Form
+                  getInformation={this.getUserInformation}
+                  getFirstName={this.getFirstName}
+                  getMiddleName={this.getMiddleName}
+                  getLastName={this.getLastName}
+                  getGender={this.getGender}
+                  getDate={this.getDate}
+                />
               </div>
             </div>
           </div>

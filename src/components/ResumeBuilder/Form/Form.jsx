@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../App.css";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -17,11 +18,23 @@ class UserForm extends React.Component {
   }
 
   changeHandler = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
     this.setState({ [e.target.name]: e.target.value });
+    if (name === "first_name") {
+      this.props.getFirstName(value);
+    } else if (name === "middle_name") {
+      this.props.getMiddleName(value);
+    } else if (name === "last_name") {
+      this.props.getLastName(value);
+    } else if (name === "date") {
+      this.props.getDate(value);
+    }
   };
 
   onChangeGender = (e) => {
     this.setState({ gender: e.target.id });
+    this.props.getGender(e.target.id);
   };
 
   onChangePublicProfile = (e) => {
@@ -37,6 +50,7 @@ class UserForm extends React.Component {
       date: this.state.date,
       gender: this.state.gender,
       make_profile_public: this.state.make_profile_public,
+      email: Cookies.get("email"),
     };
     axios
       .post("http://localhost:3000/posts", data)

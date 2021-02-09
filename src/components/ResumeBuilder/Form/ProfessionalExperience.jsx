@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../App.css";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 class ProfessionalExperience extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class ProfessionalExperience extends React.Component {
       .get("http://localhost:3000/details")
       .then((response) => {
         this.setState({ data: response.data, filterData: response.data });
+        this.props.getProfessionalExperienceInformation(response.data);
       })
       .catch((error) => {});
   };
@@ -56,6 +58,7 @@ class ProfessionalExperience extends React.Component {
       aria_selected: "false",
       content_class: "tab-pane fade",
       unique_id: unique_id,
+      email: Cookies.get("email"),
     };
     await this.setState((prevState) => ({
       data: [...prevState.data, newData],
@@ -95,6 +98,7 @@ class ProfessionalExperience extends React.Component {
         aria_selected: "false",
         content_class: "tab-pane fade",
         unique_id: this.props.unique_id,
+        email: Cookies.get("email"),
       })
       .then((response) => {})
       .catch((error) => {});

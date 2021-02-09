@@ -7,23 +7,11 @@
       "date": "1194-02-21",
       "gender": "male",
       "make_profile_public": "yes",
-      "id": 0
+      "id": 0,
+      "email": "cp.sing567@gmail.com"
     }
   ],
   "details": [
-    {
-      "name": "​Professional Positions​",
-      "details": "Consultant- Internal Medicine, Manipal Hospital, Whitefield, Bangalore from 2017 january",
-      "class": "nav-link active",
-      "id": "nav-profile-tab",
-      "data_bs_toggle": "tab",
-      "href": "#nav-profile",
-      "role": "tab",
-      "aria_controls": "nav-profile",
-      "aria_selected": "false",
-      "content_class": "tab-pane fade",
-      "unique_id": "chandan"
-    },
     {
       "name": "​Hospital Experiences​",
       "details": "Consultant- Internal Medicine, Manipal Hospital, Whitefield, Bangalore from 2017 january",
@@ -35,7 +23,8 @@
       "aria_controls": "nav-home",
       "aria_selected": "true",
       "content_class": "tab-pane fade show active",
-      "unique_id": "chandan"
+      "unique_id": "chandan",
+      "email": "cp.sing567@gmail.com"
     },
     {
       "name": "Special Assignments​ ​Served",
@@ -48,7 +37,23 @@
       "aria_controls": "nav-profile",
       "aria_selected": "false",
       "content_class": "tab-pane fade",
-      "unique_id": "chandan"
+      "unique_id": "chandan",
+      "email": "cp.sing567@gmail.com"
+    }
+  ],
+  "users": [
+    {
+      "email": "cp.sing567@gmail.com",
+      "password": "shashi",
+      "id": 1
+    }
+  ],
+  "login": [],
+  "register": [
+    {
+      "email": "cp.sing567@gmail.com",
+      "password": "shashi",
+      "id": 1
     }
   ]
 }
